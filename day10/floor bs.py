@@ -1,0 +1,20 @@
+#floor value of key element
+def kp(l,si,li,key):
+    mid=(si+li)//2
+    if si>li:
+        if l[mid]<key:
+            return l[mid]
+        else:
+            return -1
+        
+    if l[mid]==key:
+        return l[mid]
+    if l[mid]<key:
+        return kp(l,mid+1,li,key)
+    if l[mid]>key:
+        return kp(l,si,mid-1,key)
+l=list(map(int,input("enter elemnts").split()))
+key=int(input("enter key"))
+si=0
+li=len(l)-1
+print(kp(l,si,li,key))
